@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="main-container">
+        <h1>Weather App</h1>
+        <form action="" onsubmit="getWeather(event)">
+            <input type="text" id="city">
+            <button>Check</button>
+            <p id="error"></p>
+        </form>
+        <table>
+            <tr id="tempR">
+                <td id="temp">Temp</td>
+                <td id="temp-value"></td>
+            </tr>
+            <tr id="feelR">
+                <td id="feel">Feeling</td>
+                <td id="feel-value"></td>
+            </tr>
+            <tr id="humiR">
+                <td id="humidity">Humidity</td>
+                <td id="humidity-value"></td>
+            </tr>
+            <tr id="windR">
+                <td id="wind-kph">Wind Kph</td>
+                <td id="wind-kph-value"></td>
+            </tr>
+            <tr id="countryR">
+                <td id="country">Country</td>
+                <td id="country-value"></td>
+            </tr>
+            <tr id="provinceR">
+                <td id="province">Region</td>
+                <td id="province-value"></td>
+            </tr>
+            <tr id="cityR">
+                <td id="city">City</td>
+                <td id="city-value"></td>
+            </tr>
+            <tr id="updateR">
+                <td id="update">Updated</td>
+                <td id="update-value"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.17.0/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -7,10 +7,12 @@ const province = document.querySelector("#province-value");
 const city = document.querySelector("#city-value");
 const update = document.querySelector("#update-value");
 const errorP = document.querySelector("#error");
+let load = document.querySelector("#loading")
 let answer;
 async function getWeather(event) {
   try {
     event.preventDefault();
+    load.textContent = ("Loading....")
     const city_input = document.querySelector("#city-input").value;
     errorP.textContent = "";
     if (city_input.trim() === "") {
@@ -29,7 +31,6 @@ async function getWeather(event) {
     answer = await axios(
       `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city_input}`,
     );
-
     temp.innerHTML = answer.data.current.temp_c + " °C";
     feel.innerHTML = answer.data.current.feelslike_c;
     humidity.innerHTML = answer.data.current.humidity;
@@ -38,6 +39,7 @@ async function getWeather(event) {
     province.innerHTML = answer.data.location.region;
     city.innerHTML = answer.data.location.name;
     update.innerHTML = answer.data.current.last_updated;
+    load.textContent = "";
   } catch (error) {
     // console.log(error.response.data.error.message);
     errorP.innerHTML = error.response.data.error.message;

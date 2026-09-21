@@ -12,7 +12,6 @@ let answer;
 async function getWeather(event) {
   try {
     event.preventDefault();
-    load.textContent = ("Loading....")
     const city_input = document.querySelector("#city-input").value;
     errorP.textContent = "";
     if (city_input.trim() === "") {
@@ -28,6 +27,7 @@ async function getWeather(event) {
       update.innerHTML = "";
       return;
     }
+    load.textContent = ("Loading....")
     answer = await axios(
       `https://api.weatherapi.com/v1/current.json?key=60e0a3d2f152486e950213038260606&q=${city_input}`,
     );

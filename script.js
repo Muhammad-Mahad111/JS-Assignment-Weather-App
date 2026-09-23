@@ -17,6 +17,7 @@ async function getWeather(event) {
     if (city_input.trim() === "") {
       errorP.textContent = "Please enter a city!";
       errorP.style.color = "red";
+      load.textContent = "";
       temp.innerHTML = "";
       feel.innerHTML = "";
       humidity.innerHTML = "";
@@ -40,10 +41,12 @@ async function getWeather(event) {
     city.innerHTML = answer.data.location.name;
     update.innerHTML = answer.data.current.last_updated;
     load.textContent = "";
+    console.log(answer);
   } catch (error) {
     // console.log(error.response.data.error.message);
     errorP.innerHTML = error.response.data.error.message;
     errorP.style.color = "red";
+    load.textContent = "";
     temp.innerHTML = "";
     feel.innerHTML = "";
     humidity.innerHTML = "";
@@ -54,4 +57,3 @@ async function getWeather(event) {
     update.innerHTML = "";
   }
 }
-// console.log(answer);
